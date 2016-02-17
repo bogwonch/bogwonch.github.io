@@ -1,24 +1,30 @@
 ---
 layout: default
 ---
-  <h1>Posts</h1>
+<nav>
+  <div class='posts'>
+    <h1>Blog posts</h1>
   <ul>
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
+    <li>
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        {{ post.date | date: "%Y-%m-%d" }} <emph>{{ post.title }}</emph>
+      </a>
+    </li>
     {% endfor %}
   </ul>
-
-  <h1>Pages</h1>
+  </div>
+  <div class='pages'>
+    <h1>Permenant things</h1>
   <ul>
     {% for my_page in site.pages %}
-    {% if my_page.title %}
+    {%   if my_page.title        %}
     <li>
-      <a class='page-link' href='{{ my_page.url | prepend: site.baseurl }}'>{{ my_page.title }}</a>
+      <a href='{{ my_page.url | prepend: site.baseurl }}'>
+        <emph>{{ my_page.title }}</emph>
+      </a>
     </li>
-    {% endif %}
-    {% endfor %}
+    {%   endif %}
+    {% endfor  %}
   </ul>
-
+</nav>
