@@ -1,5 +1,22 @@
 <body>
-  <header>
-    <a href='{{ site.baseurl }}/'>{{ site.title }}</a>
+  <header class='site-head'>
+    <section>
+      <a class='title' href='{{ site.baseurl }}/'>{{ site.title }}</a>
+      <ul class='links'>
+        <li>
+          <a href='https://twitter.com/bogwonch'>
+            @twitter
+          </a>
+        </li>
+        <li>
+          <a href='https://github.com/bogwonch'>
+            github
+          </a>
+        </li>
+        <li>
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">rss</a>
+        </li>
+      </ul>
+    </section>
   </header>
 </body>

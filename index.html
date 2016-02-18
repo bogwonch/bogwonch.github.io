@@ -2,30 +2,36 @@
 layout: default
 ---
 <nav>
-  <div class='posts'>
-    <h1>Blog posts</h1>
-    <ul>
-      {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url | prepend: site.baseurl }}">
-          {{ post.date | date: "%Y-%m-%d" }} <emph>{{ post.title }}</emph>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class='pages'>
-    <h1>Permenant things</h1>
-    <ul>
-      {% for my_page in site.pages %}
-      {%   if my_page.title        %}
-      <li>
-        <a href='{{ my_page.url | prepend: site.baseurl }}'>
-          <emph>{{ my_page.title }}</emph>
-        </a>
-      </li>
-      {%   endif %}
-      {% endfor  %}
-    </ul>
-  </div>
+  <table>
+    <tr>
+      <td><h1>Blog posts</h1><td>
+      <td><h1>Notes</h1></td>
+    </tr>
+    <tr>
+      <td>
+        <ul>
+          {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.date | date: "%Y-%m-%d" }} <emph>{{ post.title }}</emph>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </td>
+      <td>
+        <ul>
+          {% for my_page in site.pages %}
+          {%   if my_page.title        %}
+          <li>
+            <a href='{{ my_page.url | prepend: site.baseurl }}'>
+              <emph>{{ my_page.title }}</emph>
+            </a>
+          </li>
+          {%   endif %}
+          {% endfor  %}
+        </ul>
+      </td>
+    </tr>
+  </table>
 </nav>
