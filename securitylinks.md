@@ -4,7 +4,7 @@ title: Security Links
 permalink: /securitylinks
 ---
 
-Periodically I get asked who are interesting computery / security folks on the interwebs. 
+Periodically I get asked who are interesting computery / security folks on the interwebs.
 So here's a list to save repetition!
 
 
@@ -18,13 +18,15 @@ So here's a list to save repetition!
  *  __[Grsecurity](https://grsecurity.net).__ Patch set for hardening Linux.
  *  __[Qubes](https://www.qubes-os.org).__ Reasonably secure operating system based on Xen.
  *  __[Radare](https://radare.org/r/).__ Reverse engineering framework.
- 
+
 
 # People
 
  *  __[@thegrugq](https://twitter.com/thegrugq).__ Security and Opsec researcher.
- *  __[Joanna Rutkowska](https://twitter.com/rootkovska).__ Systems security researcher.  Architect of *Qubes*.
+ *  __[Brad (Spender) Spengler](https://twitter.com/grsecurity).__ Security genius. Author of Grsecurity.  Should probably be the only person allowed to write kernel modules.
+ *  __[Joanna Rutkowska](https://twitter.com/rootkovska).__ Systems security researcher.  Architect of *Qubes*.  Published papers on *red-pill blue-pill* techniques.
+ *  __[Moxie Marlinspike](https://twitter.com/moxie).__ Twitters ex-head of security.  Founder of *Open Whisper Systems*.  Introduced SSL stripping, and several SSL attacks.
  *  __[Pancake](https://twitter.com/trufae).__ *Radare* developer.
- *  __[Pau Oliva](https://twitter.com/pof).__ Android reverse engineer. 
+ *  __[Pau Oliva](https://twitter.com/pof).__ Android reverse engineer.
  *  __[Solar Designer](https://twitter.com/solardiz).__ Founder of *Openall*.  Legendary Security engineer.
  *  __[Travis Ormandy](https://twitter.com/taviso).__ Linux developer.  Member of Google's *Project Zero*.
