@@ -13,11 +13,11 @@ permalink: /shirts
 5.  Flamingoes
 6.  Dad goes to Hawaii _(given to my father)_
 7.  I go to Hawaii
+8.  ???
 
 # Future shirts
 
-8.  Gay shark shirt
-9.  Fast food
-10. ???
+9.  Gay shark shirt
+10. Fast food
 11. Tiki heads
 
