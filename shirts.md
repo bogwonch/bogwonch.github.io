@@ -13,7 +13,7 @@ permalink: /shirts
 5.  Flamingoes
 6.  Dad goes to Hawaii _(given to my father)_
 7.  I go to Hawaii
-8.  ???
+8.  He was a skater skelly *(given to Joe Farrimond)*
 
 # Future shirts
 
