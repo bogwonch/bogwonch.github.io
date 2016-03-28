@@ -2,7 +2,7 @@
 layout: post
 title: The academic recruitment division of the Sirius Cybernetics Corporation
 date: 2016-03-10 23:05:00 +0000
-categories: spammers, spam, email
+categories: spammers spam email
 ---
 
 I *hate* marketers.
