@@ -5,7 +5,6 @@ date: 2016-03-28 19:13:48 +0000
 categories: hearthstone
 ---
 
-
 # Setup
 
 The adventurecateers and *Brian Perfect* are brought into a briefing with the head of the Hearthstone's laundry.
