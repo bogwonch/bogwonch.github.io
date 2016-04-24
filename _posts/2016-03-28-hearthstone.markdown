@@ -25,6 +25,15 @@ She hands *Brian Perfect* a copy of her book _"Paula Nancy Milstone Jennings Col
 Brian opens it and reads a line before screaming and collapsing on the floor in the foetal position, gurgling and with white froth around his mouth.
 She sighs and says that this always seems to happen when people read her poetry as she wanders off.
 
+> The dead swans lay in the stagnant pool.
+> They lay. They rotted. They turned
+> Around occasionally.
+> Bits of flesh dropped off them from
+> Time to time.
+> And sank into the pool’s mire.
+> They also smelt a great deal.
+>
+
 PERCEPTION:
 ~   Floor is neatly hoovered.  Brian's camera is in his left pocket.
 
