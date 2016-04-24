@@ -13,7 +13,7 @@ She explains that the hearthstone is running out of towels.
 They never expected so many people to join the ship, never mind whole villages of refugees.
 Someone has been using towels as backdrops for ebay pictures; someone else has been wrapping corpses and orc heads in them.
 
-They've found a universe with a very high density of towels, and a ship carrying at least XX of them.
+They've found a universe with a very high density of towels, and a ship carrying at least 13 of them.
 Luckilly they've found a universe with towels, and you're going to be beamed stealthilly onto a ship carrying them.
 Your mission is to get as many as you can, then get off the ship somehow where the pod will take you back.
 
@@ -276,13 +276,13 @@ PERCEPTION:
 A hologram of *Paula Nancy Milstone Jennings* appears before you.
 She asks you how you're doing, she says that she reckons they should have got 13 towels by now...
 
-4 towels:  Small reward *Detol*.
-7 towels:  Medium reward *Lemon Pledge*
-10 towels: Large reward *Mr. Muscle*
+* 4 towels:  Medium reward *Lemon Pledge*
+* 7 towels:  Small reward *Detol*.
+* 10 towels: Large reward *Mr. Muscle*
 
 
 ITEM Detol:
-~   Cleans something up.  Can make remove poison from any object.
+~   Detol protects and thats a fact.  (Level 1 protection).  Also kills 99% of all known germs instantly.
 
 ITEM Lemon Pledge:
 ~   Makes something super shiny and ultra-reflective.
