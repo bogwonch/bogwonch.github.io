@@ -14,10 +14,10 @@ permalink: /shirts
 6.  Dad goes to Hawaii _(given to my father)_
 7.  I go to Hawaii
 8.  He was a skater skelly *(given to Joe Farrimond)*
+9.  Burger time!
 
 # Future shirts
 
 9.  Gay shark shirt
-10. Fast food
 11. Tiki heads
 
