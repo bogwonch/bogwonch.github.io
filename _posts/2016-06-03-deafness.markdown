@@ -1,4 +1,11 @@
-Reflections on becoming (partially) deaf
+---
+layout: post
+title: Reflections on becaming (partially) deaf
+date: 2016-06-03 13:00:00 +0000
+categories: hearthstone
+---
+
+# Reflections on becoming (partially) deaf
 
 I am in Reykjavíc for a conference.  It's a beautiful country. Stark and
 minimal with buildings that look like they've been put up temporarily rather
