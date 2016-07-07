@@ -15,9 +15,9 @@ permalink: /shirts
 7.  I go to Hawaii
 8.  He was a skater skelly *(given to Joe Farrimond)*
 9.  Burger time!
+10.  Gay shark shirt
 
 # Future shirts
 
-9.  Gay shark shirt
 11. Tiki heads
 
