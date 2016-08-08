@@ -20,5 +20,8 @@ permalink: /shirts
 
 # Future shirts
 
-11. Tiki heads
-
+12. Tiki heads
+13. Hibiscus and Pineapple
+14. Elegant Hawaiian Leaves in Blue
+15. Plumeria Blue Fern
+16. Monstera Tiare Red
