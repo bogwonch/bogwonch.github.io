@@ -25,3 +25,6 @@ permalink: /shirts
 14. Elegant Hawaiian Leaves in Blue
 15. Plumeria Blue Fern
 16. Monstera Tiare Red
+17. Lobsters
+18. Aloha Red
+20. Christmas Kitties
