@@ -4,6 +4,7 @@ description: >
   Notes, memos, and information from someone who wonches in bogs.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bogwonch.net" # the base hostname & protocol for your site
+include: [shirts]
 
 # Build settings
 markdown: kramdown
