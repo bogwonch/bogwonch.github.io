@@ -6,17 +6,17 @@ permalink: /shirts
 
 # Current shirts
 
-1.  The poorly made one
-2.  The shark shirt
-3.  Black and lilies
-4.  Skulls
-5.  Flamingoes
-6.  Dad goes to Hawaii _(given to my father)_
-7.  I go to Hawaii
-8.  He was a skater skelly *(given to Joe Farrimond)*
-9.  Burger time!
-10. Gay shark shirt
-11. Mexican ladies *(made for my unborn son)* 
+01. [The poorly made one](/shirts/mark-01)
+02. [The shark shirt](/shirts/mark-02)
+03. [Black and lilies](/shirts/mark-03)
+04. [Skulls](/shirts/mark-04)
+05. [Flamingoes](/shirts/mark-05)
+06. [Dad goes to Hawaii _(given to my father)_](/shirts/mark-06)
+07. [I go to Hawaii](/shirts/mark-07)
+08. [He was a skater skelly *(given to Joe Farrimond)*](/shirts/mark-08)
+09. [Burger time!](/shirts/mark-09)
+10. [Gay shark shirt](/shirts/mark-10)
+11. [Mexican ladies *(made for my son)* ](/shirts/mark-11)
 
 # Future shirts
 

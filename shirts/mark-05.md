@@ -4,5 +4,5 @@ title: Mark-05
 categories:shirt sewing
 ---
 
-![[shirts/imgs/mark-05.jpg]]
+![mark-05](shirts/imgs/mark-05.jpg)
 
