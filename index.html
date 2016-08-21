@@ -24,7 +24,7 @@ layout: default
           {% for my_page in site.pages %}
           {%   if my_page.title        %}
           <li>
-            <a href='{{ my_page.url | prepend: site.baseurl }}.html'>
+            <a href='{{ my_page.url | prepend: site.baseurl }}'>
               <emph>{{ my_page.title }}</emph>
             </a>
           </li>
