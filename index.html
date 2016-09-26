@@ -1,37 +1,38 @@
----
-layout: default
----
-<nav>
-  <table class='front-page'>
-    <tr>
-      <td><h1>Blog posts</h1></td>
-      <td><h1>Notes</h1></td>
-    </tr>
-    <tr>
-      <td>
-        <ul>
-          {% for post in site.posts %}
-          <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">
-              {{ post.date | date: "%Y-%m-%d" }} <emph>{{ post.title }}</emph>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </td>
-      <td>
-        <ul>
-          {% for my_page in site.pages %}
-          {%   if my_page.title        %}
-          <li>
-            <a href='{{ my_page.url | prepend: site.baseurl }}'>
-              <emph>{{ my_page.title }}</emph>
-            </a>
-          </li>
-          {%   endif %}
-          {% endfor  %}
-        </ul>
-      </td>
-    </tr>
-  </table>
-</nav>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="bogwonch">
+    <title>bogwonch.net</title>
+    <link rel=stylesheet href="/stylesheet.css">
+  </head>
+  
+  <body>
+    <header name=top>
+      <ul>
+        </li><h1>❡ <a class="title" href="/">bogwonch.net</a></h1></li>
+      <ul>
+    </header>
+
+    <section>
+      <article>
+      <ul id=keywords>
+      </ul>
+  
+<p>A collection of my writings and various other things! I make <a href="shirts" class="uri">shirts</a> and I play with <a href="https://github.com/bogwonch">computers</a>.</p>
+<p>Almost all of this is written in <a href="index.org">org-mode</a> and exported through <a href="bogwonch.html5">pandoc</a>.</p>
+<h1 id="blogs">Blogs</h1>
+<p>I rarely blog. Mostly just random notes.</p>
+<ul>
+<li><a href="blogs/2016-06-03-deafness.html">2016-06-03 Notes on becoming partially deaf</a></li>
+<li><a href="blogs/2016-03-28-hearthstone.html">2016-03-28 A Hoopy Hearthstone Adventure</a></li>
+<li><a href="blogs/2016-03-19-Qubes-USB-Keyboards.html">2016-03-19 Qubes and Keyboards</a></li>
+<li><a href="blogs/2016-03-10-fucking-spammers.html">2016-03-10 Spammers suck</a></li>
+<li><a href="blogs/2016-02-24-qubes-first-impressions.html">2016-02-24 Qubes first impressions</a></li>
+<li><a href="blogs/2015-11-24-dell-ssl-screwup.html">2015-11-24 Dell's SSL Screwup</a></li>
+</ul>
+      </article>
+    </section>
+  </body>
+</html>
+

@@ -1,0 +1,19 @@
+#+TITLE: bogwonch.net
+#+AUTHOR: bogwonch
+
+A collection of my writings and various other things!
+I make [[file:shirts][shirts]] and I play with [[https://github.com/bogwonch][computers]].
+
+Almost all of this is written in [[file:index.org][org-mode]] and exported
+through [[file:bogwonch.html5][pandoc]].
+
+* Blogs
+
+I rarely blog. Mostly just random notes.
+
+- [[file:blogs/2016-06-03-deafness.html][2016-06-03 Notes on becoming partially deaf]]
+- [[file:blogs/2016-03-28-hearthstone.html][2016-03-28 A Hoopy Hearthstone Adventure]]
+- [[file:blogs/2016-03-19-Qubes-USB-Keyboards.html][2016-03-19 Qubes and Keyboards]]
+- [[file:blogs/2016-03-10-fucking-spammers.html][2016-03-10 Spammers suck]]
+- [[file:blogs/2016-02-24-qubes-first-impressions.html][2016-02-24 Qubes first impressions]]
+- [[file:blogs/2015-11-24-dell-ssl-screwup.html][2015-11-24 Dell's SSL Screwup]]

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+$for(author-meta)$
+    <meta name="author" content="$author-meta$">
+$endfor$
+$if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+$endif$
+$if(title)$
+    <title>$title$</title>
+$else$
+    <title>bogwonch.net</title>
+$endif$
+    <link rel=stylesheet href="/stylesheet.css">
+  </head>
+  
+  <body>
+    <header name=top>
+      <ul>
+        </li><h1>❡ <a class="title" href="/">bogwonch.net</a></h1></li>
+      <ul>
+    </header>
+
+    <section>
+      <article>
+      <ul id=keywords>
+$for(keywords)$
+        <li>
+          <a href="$keyword$">#$keyword$</a>
+        </li>
+$endfor$
+      </ul>
+$if(date-meta)$
+      <div id=date>Written on: $date-meta$</div>
+$endif$
+  
+$body$
+      </article>
+    </section>
+  </body>
+</html>
+

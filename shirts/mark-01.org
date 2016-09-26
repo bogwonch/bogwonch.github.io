@@ -1,0 +1,6 @@
+#+TITLE: Mark-I - The poorly made one
+
+#+caption: I made this one by myself.  My partner fixed it.  It's garish but I love it.
+[[imgs/mark-01.jpg]]
+
+
