@@ -31,6 +31,14 @@ body {
         color: #bf360c; }
       body section article a:visited {
         color: black; }
+      body section article pre {
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+        body section article pre code {
+          text-align: left;
+          color: #37474f; }
       body section article img {
         width: 60%;
         display: block;
