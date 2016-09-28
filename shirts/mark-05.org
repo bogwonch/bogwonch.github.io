@@ -1,7 +1,7 @@
 #+TITLE: Mark-V - Flamingoes
 
 #+caption: Beginning to need to be retired. Garish, but cool.
-[[imgs/mark-05.jpg]]
+[[imgs/mark-05.s.jpeg]]
 
 
 

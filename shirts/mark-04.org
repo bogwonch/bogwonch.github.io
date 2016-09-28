@@ -1,6 +1,6 @@
 #+TITLE: Mark-IV - Skulls
 
 #+caption: Made for halloween; worn often.
-[[imgs/mark-04.jpg]]
+[[imgs/mark-04.s.jpeg]]
 
 
