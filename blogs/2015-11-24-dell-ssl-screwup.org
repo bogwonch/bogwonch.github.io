@@ -85,5 +85,4 @@ Manufacturers adding extra keys on their own computers is only the start
 of the festering dung heap that is the certificate infrastructure.
 
 #+CAPTION: Bad SSL certificate
-
-[[https://raw.githubusercontent.com/bogwonch/notes/master/dell-ssl-screwup.png]]
+[[imgs/dell-ssl-screwup.s.jpeg]]
