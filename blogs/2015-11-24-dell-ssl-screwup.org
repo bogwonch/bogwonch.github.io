@@ -84,5 +84,5 @@ NOW APPARENTLY OUT OF DATE?
 Manufacturers adding extra keys on their own computers is only the start
 of the festering dung heap that is the certificate infrastructure.
 
-#+CAPTION: Bad SSL certificate
+#+CAPTION: Why do I need this?
 [[imgs/dell-ssl-screwup.s.jpeg]]
