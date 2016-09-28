@@ -1,0 +1,7 @@
+#+TITLE: Mark-VII - I go to Hawaii
+
+#+caption: I also liked the [[file:mark-06.html][Mark VI]] pattern.
+[[imgs/mark-07.s.jpeg]]
+
+
+
