@@ -1,0 +1,58 @@
+#+TITLE: Rolling your own
+
+I've redone the website.
+Gone is the Jekyll and the /content-management-systems/. 
+Instead I have a bunch of org-mode and markdown files, and a [[file:/Makefile][Makefile]] that builds everything for me. 
+
+There is something deeply enjoyable about making your own things.  
+I /could/ go and buy a cake from the [[http://www.thisisanna.co.uk][beautiful patisserie shop]] up the road from me.
+It is /often/ (but not always) more fun to bake my own.
+Programmers know this desire well though that was madness and timewasting lies.[fn:1]
+We still program with Lisp, though.
+We create beautiful if unnecessary abstractions and little tweaks to build our own languages around the problems we solve.
+
+I got rid of the Jekyll code, ultimately, because I didn't really understand all it was doing, and it was tricky to tweak things.
+If I wanted to use a different markdown engine, I'd need to find or write a plugin, and look up how to do that.
+Of course now if I want to do that I still have to do that.
+The code is trivial however.
+
+Turn everything thats an org-mode file in the top or second-level directories
+into HTML.
+
+#+begin_src Make
+files=$(patsubst %.org,%.html,$(wildcard *.org)) \
+      $(patsubst %.org,%.html,$(wildcard */*.org))
+
+all: ${files} 
+#+end_src
+
+Turn org-to-html like this. 
+
+#+begin_src
+%.html: %.org bogwonch.html5
+	pandoc -t html -f org --template=bogwonch.html5 "${<}" -o "${@}"
+#+end_src
+
+I'm sure I could do much the same with Jekyll, but I'd have to look it up.
+Undoubtably I'm more familiar with the four lines of Makefile.
+It does everything I want.
+If I want to change it later I can, and my old stuff will keep working.
+There are no extra directories.  
+No config files.[fn:2]
+I don't use Javascript, but I could add some if I wanted to.
+It was simple, and enjoyable to make.
+I spent half-an-hour debugging it (mostly CSS which I don't really know).
+
+I haven't rolled it all myself.
+Inventing my own markup language, to replace the hybrid of org-mode and Markdown I write in Vim, isn't something I've done.
+I haven't rolled *everything* myself, but I have just rolled enough to make it enjoyable.
+Other stuff can come later.
+I don't feel I've lost anything from the Jekyll.
+Undoubtably I probably have, but I didn't need it.
+
+This is fine.
+This feels good.
+
+[fn:1] ...and frankly security bugs if you roll your own crypto.
+
+[fn:2] Bar a pandoc template, the Makefile and a smidge of [[https://sass-lang.com][SASS]].  Why do people use SCSS more than the SASS variant?  Web developers are weird.
