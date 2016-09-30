@@ -14,6 +14,7 @@ all: ${posts} ${css} ${imgs}
 # DJPEG and CJPEG are part of the mozjpeg package
 %.s.jpeg: %.jpg
 	@echo "[INFO] compressing ${<}"
+	@convert "${<}" -resize '1048576@>' "${<}"
 	@djpeg "${<}" | cjpeg -quality 5 -optimize -rgb -progressive >"${@}"
 
 %.css: %.sass
