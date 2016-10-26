@@ -7,6 +7,10 @@ I make [[file:shirts][shirts]] and I play with [[https://github.com/bogwonch][co
 Almost all of this is written in [[file:index.org][org-mode]] and exported
 through [[file:bogwonch.html5][pandoc]].
 
+* Notes
+
+- [[file:notes/curl-bash.html][Sites that pipe curl into bash]]
+
 * Blogs
 
 I rarely blog. Mostly just random notes.
@@ -19,3 +23,4 @@ I rarely blog. Mostly just random notes.
 - [[file:blogs/2016-03-10-fucking-spammers.html][2016-03-10 Spammers suck]]
 - [[file:blogs/2016-02-24-qubes-first-impressions.html][2016-02-24 Qubes first impressions]]
 - [[file:blogs/2015-11-24-dell-ssl-screwup.html][2015-11-24 Dell's SSL Screwup]]
+
