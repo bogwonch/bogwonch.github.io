@@ -1,9 +1,12 @@
 * {
-  font-family: "PragmataPro", monospace;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: inherit;
   color: inherit;
   background-color: inherit;
   text-color: inherit; }
+
+code {
+  font-family: "PragmataPro", monospace; }
 
 body {
   margin-left: 0;
