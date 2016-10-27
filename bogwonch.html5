@@ -13,7 +13,7 @@ $if(title)$
 $else$
     <title>bogwonch.net</title>
 $endif$
-    <!-- <link rel=stylesheet href="/stylesheet.css"> -->
+    <link rel="import" href="/imports.html">
   </head>
   
   <body>
@@ -38,6 +38,7 @@ $endif$
   
 $body$
 
+<!--
         <noscript id="deferred-styles">
           <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
         </noscript>
@@ -54,6 +55,7 @@ $body$
           if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
           else window.addEventListener('load', loadDeferredStyles);
         </script>
+-->
       </article>
     </section>
   </body>
