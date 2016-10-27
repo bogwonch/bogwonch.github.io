@@ -18,15 +18,6 @@ $subdued: #37474f
   text-color: inherit
   line-height: inherit
 
-code
-  font-family: $monofont
-  overflow-x: scroll
-
-  .kw
-    font-style: italic
-
-  .fu
-    font-weight: bold
   
 body 
   margin-left: 0
@@ -68,6 +59,15 @@ body
         code
           text-align: left
           color: $subdued
+          font-family: $monofont
+          overflow-x: scroll
+          width: 100%
+
+          .kw
+            font-style: italic
+
+          .fu
+            font-weight: bold
 
       img
         +inset-centered(60%)
