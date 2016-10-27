@@ -1,51 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Rolling your own</title>
-    <meta name=viewport content="width=device-width, initial-scale=1"> 
-    <style type="text/css">
-  *{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:1.5}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
-  /*# sourceMappingURL=stylesheet.css.map */
-    </style>
-  </head>
-  
-  <body>
-    <header name=top>
-      <ul>
-        </li><h1>❡ <a class="title" href="/">bogwonch.net</a></h1></li>
-      <ul>
-    </header>
-
-    <section>
-      <article>
-      <ul id=keywords>
-      </ul>
-<p>I've redone the website. Gone is the Jekyll and the <em>content-management-systems</em>. Instead I have a bunch of org-mode and markdown files, and a <a href="/Makefile">Makefile</a> that builds everything for me.</p>
-<p>There is something deeply enjoyable about making your own things. I <em>could</em> go and buy a cake from the <a href="http://www.thisisanna.co.uk">beautiful patisserie shop</a> up the road from me. It is <em>often</em> (but not always) more fun to bake my own. Programmers know this desire well though that was madness and timewasting lies.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> We still program with Lisp, though. We create beautiful if unnecessary abstractions and little tweaks to build our own languages around the problems we solve.</p>
-<p>I got rid of the Jekyll code, ultimately, because I didn't really understand all it was doing, and it was tricky to tweak things. If I wanted to use a different markdown engine, I'd need to find or write a plugin, and look up how to do that. Of course now if I want to do that I still have to do that. The code is trivial however.</p>
-<p>Turn everything thats an org-mode file in the top or second-level directories into HTML.</p>
-<pre class="Make"><code>files=$(patsubst %.org,%.html,$(wildcard *.org)) \
+<!DOCTYPE html><meta charset=utf-8><title>Rolling your own</title><meta name=viewport content="width=device-width,initial-scale=1"><style>*{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:1.5}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
+  /*# sourceMappingURL=stylesheet.css.map */</style><header name=top><ul><h1>❡<a class=title href=/ >bogwonch.net</a></h1></ul></header><section><article><p>I've redone the website. Gone is the Jekyll and the<em>content-management-systems</em>. Instead I have a bunch of org-mode and markdown files, and a<a href=/Makefile>Makefile</a>that builds everything for me.<p>There is something deeply enjoyable about making your own things. I<em>could</em>go and buy a cake from the<a href=http://www.thisisanna.co.uk>beautiful patisserie shop</a>up the road from me. It is<em>often</em>(but not always) more fun to bake my own. Programmers know this desire well though that was madness and timewasting lies.<a href=#fn1 class=footnoteRef id=fnref1><sup>1</sup></a>We still program with Lisp, though. We create beautiful if unnecessary abstractions and little tweaks to build our own languages around the problems we solve.<p>I got rid of the Jekyll code, ultimately, because I didn't really understand all it was doing, and it was tricky to tweak things. If I wanted to use a different markdown engine, I'd need to find or write a plugin, and look up how to do that. Of course now if I want to do that I still have to do that. The code is trivial however.<p>Turn everything thats an org-mode file in the top or second-level directories into HTML.<pre class=Make><code>files=$(patsubst %.org,%.html,$(wildcard *.org)) \
       $(patsubst %.org,%.html,$(wildcard */*.org))
 
 all: ${files} 
-</code></pre>
-<p>Turn org-to-html like this.</p>
-<pre><code>%.html: %.org bogwonch.html5
+</code></pre><p>Turn org-to-html like this.<pre><code>%.html: %.org bogwonch.html5
     pandoc -t html -f org --template=bogwonch.html5 &quot;${&lt;}&quot; -o &quot;${@}&quot;
-</code></pre>
-<p>I'm sure I could do much the same with Jekyll, but I'd have to look it up. Undoubtably I'm more familiar with the four lines of Makefile. It does everything I want. If I want to change it later I can, and my old stuff will keep working. There are no extra directories. No config files.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> I don't use Javascript, but I could add some if I wanted to. It was simple, and enjoyable to make. I spent half-an-hour debugging it (mostly CSS which I don't really know).</p>
-<p>I haven't rolled it all myself. Inventing my own markup language, to replace the hybrid of org-mode and Markdown I write in Vim, isn't something I've done. I haven't rolled <strong>everything</strong> myself, but I have just rolled enough to make it enjoyable. Other stuff can come later. I don't feel I've lost anything from the Jekyll. Undoubtably I probably have, but I didn't need it.</p>
-<p>This is fine. This feels good.</p>
-<section class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>...and frankly security bugs if you roll your own crypto.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Bar a pandoc template, the Makefile and a smidge of <a href="https://sass-lang.com">SASS</a>. Why do people use SCSS more than the SASS variant? Web developers are weird.<a href="#fnref2">↩</a></p></li>
-</ol>
-</section>
-      </article>
-    </section>
-  </body>
-</html>
-
+</code></pre><p>I'm sure I could do much the same with Jekyll, but I'd have to look it up. Undoubtably I'm more familiar with the four lines of Makefile. It does everything I want. If I want to change it later I can, and my old stuff will keep working. There are no extra directories. No config files.<a href=#fn2 class=footnoteRef id=fnref2><sup>2</sup></a>I don't use Javascript, but I could add some if I wanted to. It was simple, and enjoyable to make. I spent half-an-hour debugging it (mostly CSS which I don't really know).<p>I haven't rolled it all myself. Inventing my own markup language, to replace the hybrid of org-mode and Markdown I write in Vim, isn't something I've done. I haven't rolled<strong>everything</strong>myself, but I have just rolled enough to make it enjoyable. Other stuff can come later. I don't feel I've lost anything from the Jekyll. Undoubtably I probably have, but I didn't need it.<p>This is fine. This feels good.<section class=footnotes><hr><ol><li id=fn1><p>...and frankly security bugs if you roll your own crypto.<a href=#fnref1>↩</a><li id=fn2><p>Bar a pandoc template, the Makefile and a smidge of<a href=https://sass-lang.com>SASS</a>. Why do people use SCSS more than the SASS variant? Web developers are weird.<a href=#fnref2>↩</a></ol></section></article></section>

@@ -9,15 +9,17 @@ imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg))
 
 pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
+html_minimize=html-minifier --html5 --collapse-{boolean-attributes,inline-tag-whitespace,whitespace}
+
 all: ${posts} ${css} ${imgs}
 
 %.html: %.org bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
-	@pandoc -t html5 -f org ${pandoc_opts} "${<}" -o "${@}"
+	@pandoc -t html5 -f org ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
 
 %.html: %.md bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
-	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" -o "${@}"
+	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
 
 # DJPEG and CJPEG are part of the mozjpeg package
 %.s.jpeg: %.jpg
