@@ -7,6 +7,10 @@
 
 code {
   font-family: "PragmataPro", monospace; }
+  code .kw {
+    font-style: italic; }
+  code .fu {
+    font-weight: bold; }
 
 body {
   margin-left: 0;
