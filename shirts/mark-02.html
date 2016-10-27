@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Mark-II - The shark shirt</title>
-    <link rel="import" href="/imports.html">
+    <!-- <link rel="import" href="/imports.html"> -->
     <meta name=viewport content="width=device-width, initial-scale=1"> 
+    <style type="text/css">
+  *{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:1.5}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
+  /*# sourceMappingURL=stylesheet.css.map */
+    </style>
   </head>
   
   <body>
@@ -18,10 +22,9 @@
       <article>
       <ul id=keywords>
       </ul>
-<div class="figure">
-<img src="imgs/mark-02.s.jpeg" alt="Sharks are cool. This is cut a little short though." />
-<p class="caption">Sharks are cool. This is cut a little short though.</p>
-</div>
+<figure>
+<img src="imgs/mark-02.s.jpeg" alt="Sharks are cool. This is cut a little short though." /><figcaption>Sharks are cool. This is cut a little short though.</figcaption>
+</figure>
       </article>
     </section>
     <!-- 
@@ -30,6 +33,7 @@
 
       http://caniuse.com/#feat=imports
     -->
+    <!--
     <noscript id="deferred-styles">
       <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
     </noscript>
@@ -46,6 +50,7 @@ webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 else window.addEventListener('load', loadDeferredStyles);
     </script>
+    -->
   </body>
 </html>
 

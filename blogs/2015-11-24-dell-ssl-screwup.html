@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>A lay explanation of this whole Dell thing you may have seen in the news:</title>
-    <link rel="import" href="/imports.html">
+    <!-- <link rel="import" href="/imports.html"> -->
     <meta name=viewport content="width=device-width, initial-scale=1"> 
+    <style type="text/css">
+  *{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:1.5}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
+  /*# sourceMappingURL=stylesheet.css.map */
+    </style>
   </head>
   
   <body>
@@ -33,10 +37,9 @@
 <p>But lets think about the bigger picture for a second: on my computer I have 181 keys that can be used to check evidence that a site is who they say they are. All of them have evidence producing keys that can make proofs you're visiting any website. Are you <em>sure</em> you trust all of them to not produce a fake key to sell you better advertising? Because a government asked them to and made them sign a secrecy agreement so they could catch neer-do-wells? Because they screwed up and couldn't be bothered to check someone was who they said they were? There have been cases of all these things happening before.</p>
 <p>The picture I attached is of one of the keys on my computer. It belongs (I believe) to the Finnish Population Register Center. Why the hell do they need a key? Why is it in the default set of keys installed on every computer? AND WHY CANT THEY BE BOTHERED TO UPDATE THE EVIDENCE FOR THEIR OWN BLEEDING WEBSITE (WHICH LEADS BACK TO THEIR OWN DAMN KEY) WHICH IS NOW APPARENTLY OUT OF DATE?</p>
 <p>Manufacturers adding extra keys on their own computers is only the start of the festering dung heap that is the certificate infrastructure.</p>
-<div class="figure">
-<img src="imgs/dell-ssl-screwup.s.jpeg" alt="Why do I need this?" />
-<p class="caption">Why do I need this?</p>
-</div>
+<figure>
+<img src="imgs/dell-ssl-screwup.s.jpeg" alt="Why do I need this?" /><figcaption>Why do I need this?</figcaption>
+</figure>
       </article>
     </section>
     <!-- 
@@ -45,6 +48,7 @@
 
       http://caniuse.com/#feat=imports
     -->
+    <!--
     <noscript id="deferred-styles">
       <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
     </noscript>
@@ -61,6 +65,7 @@ webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 else window.addEventListener('load', loadDeferredStyles);
     </script>
+    -->
   </body>
 </html>
 

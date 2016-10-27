@@ -13,8 +13,13 @@ $if(title)$
 $else$
     <title>bogwonch.net</title>
 $endif$
-    <link rel="import" href="/imports.html">
+    <!-- <link rel="import" href="/imports.html"> -->
     <meta name=viewport content="width=device-width, initial-scale=1"> 
+$for(header-includes)$
+    <style type="text/css">
+  $header-includes$
+    </style>
+$endfor$
   </head>
   
   <body>
@@ -45,6 +50,7 @@ $body$
 
       http://caniuse.com/#feat=imports
     -->
+    <!--
     <noscript id="deferred-styles">
       <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
     </noscript>
@@ -61,6 +67,7 @@ webkitRequestAnimationFrame || msRequestAnimationFrame;
 if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
 else window.addEventListener('load', loadDeferredStyles);
     </script>
+    -->
   </body>
 </html>
 
