@@ -54,14 +54,16 @@ body
       a:visited
         color: black
 
-      pre
+      div.sourceCode
         +inset-centered(90%)
-        code
-          text-align: left
-          color: $subdued
-          font-family: $monofont
-          overflow-x: scroll
-          width: 100%
+        overflow-x: scroll
+        white-space: nowrap
+        pre
+          display: inline
+          code
+            text-align: left
+            color: $subdued
+            font-family: $monofont
 
           .kw
             font-style: italic
