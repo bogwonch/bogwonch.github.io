@@ -40,6 +40,14 @@ body
     ul li 
       display: inline-block
 
+  code
+    text-align: left
+    font-family: $monofont
+    .kw
+      font-style: italic
+    .fu
+      font-weight: bold
+
   section 
     margin-left: 5%
     margin-right: 5%
@@ -61,15 +69,6 @@ body
         pre
           display: inline
           code
-            text-align: left
             color: $subdued
-            font-family: $monofont
-
-          .kw
-            font-style: italic
-
-          .fu
-            font-weight: bold
-
       img
         +inset-centered(60%)
