@@ -13,11 +13,11 @@ html_minimize=html-minifier --html5 --collapse-{boolean-attributes,whitespace} -
 
 all: ${posts} ${css} ${imgs}
 
-%.html: %.org bogwonch.html5 ${css} Makefile
+%.html: %.org bogwonch.html5 ${css} 
 	@echo "[INFO] updating HTML for ${<}"
 	@pandoc -t html5 -f org ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
 
-%.html: %.md bogwonch.html5 ${css} Makefile
+%.html: %.md bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
 	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
 
@@ -26,6 +26,15 @@ all: ${posts} ${css} ${imgs}
 	@echo "[INFO] compressing ${<}"
 	@convert "${<}" -resize '1048576@>' "${<}"
 	@djpeg "${<}" | cjpeg -quality 5 -optimize -rgb -progressive >"${@}"
+
+# In practice this isn't worth it
+%.svg: %.ppm
+	@echo "[INFO] rasterizing ${<}"
+	@potrace -s "${<}" -o "${@}"
+
+%.ppm: %.jpg
+	@echo "[INFO] converting ${<} for rasterization"
+	@convert "${<}" -resize '1048576@>' "${@}"
 
 %.css: %.sass
 	@echo "[INFO] updating stylesheet ${<}"
