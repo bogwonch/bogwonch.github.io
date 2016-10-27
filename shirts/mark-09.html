@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Mark-IX - Burger Time</title>
-    <link rel=stylesheet href="/stylesheet.css">
+    <!-- <link rel=stylesheet href="/stylesheet.css"> -->
   </head>
   
   <body>
@@ -22,6 +22,23 @@
 <img src="imgs/mark-09.s.jpeg" alt="A loud neon pattern but suprisingly subdued. The back is upside-down (not that you&#39;d know it)." />
 <p class="caption">A loud neon pattern but suprisingly subdued. The back is upside-down (not that you'd know it).</p>
 </div>
+
+        <noscript id="deferred-styles">
+          <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+        </noscript>
+        <script>
+          var loadDeferredStyles = function() {
+            var addStylesNode = document.getElementById("deferred-styles");
+            var replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+          else window.addEventListener('load', loadDeferredStyles);
+        </script>
       </article>
     </section>
   </body>

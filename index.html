@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="author" content="bogwonch">
     <title>bogwonch.net</title>
-    <link rel=stylesheet href="/stylesheet.css">
+    <!-- <link rel=stylesheet href="/stylesheet.css"> -->
   </head>
   
   <body>
@@ -37,6 +37,23 @@
 <li><a href="blogs/2016-02-24-qubes-first-impressions.html">2016-02-24 Qubes first impressions</a></li>
 <li><a href="blogs/2015-11-24-dell-ssl-screwup.html">2015-11-24 Dell's SSL Screwup</a></li>
 </ul>
+
+        <noscript id="deferred-styles">
+          <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+        </noscript>
+        <script>
+          var loadDeferredStyles = function() {
+            var addStylesNode = document.getElementById("deferred-styles");
+            var replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+          else window.addEventListener('load', loadDeferredStyles);
+        </script>
       </article>
     </section>
   </body>

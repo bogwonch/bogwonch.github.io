@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Qubes first impressions</title>
-    <link rel=stylesheet href="/stylesheet.css">
+    <!-- <link rel=stylesheet href="/stylesheet.css"> -->
   </head>
   
   <body>
@@ -49,6 +49,23 @@
 <p>Lotta gripes, but they're mostly cosmetic. The biggest one for me is the documentation which isn't good enough. I love the control it gives me and the way it lets me implement the partitioning of my work/life in a way that <em>feels</em> good. It's young. It is <em>definitely</em> not production ready, but it is getting there. I think I'll keep it and upgrade the system to v3.1-rc3, rather than putting another OS on it.</p>
 <p>The two biggest things that'd help it now is to work on the documentation, and to have someone work on the usability aspects. Both things <em>I</em> can and probably should do. Perhaps I'll get up off my fat-arse and submit some pull-requests.</p>
 <p>Overall though, Qubes <em>feels</em> good. It <em>feels</em> fun, exciting, and leaves you imagining what you <em>could</em> do. Like that first time you installed Linux and you got to play with those cool window effects, or when you first realised you could change all the icons on your System 7 Mac, or when you copied out that <em>Animal Crossing</em> pattern of AiAi from <em>Super Monkey Ball</em> from that Edge magazine article. These are, aside from personal things to me, all very childish things, but its that childish glee at the system that gets me all excited about it. It doesn't feel polished, but it feels good, and it feels exciting and new. It's not like a new release of MacOS or iOS with slightly different gradients and slight refinements. It's like the first iPad. Bold, a slap in the face for conventional thinking, and <em>undoubtably</em> the shape of things to come. Exciting times!</p>
+
+        <noscript id="deferred-styles">
+          <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+        </noscript>
+        <script>
+          var loadDeferredStyles = function() {
+            var addStylesNode = document.getElementById("deferred-styles");
+            var replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+          };
+          var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+              webkitRequestAnimationFrame || msRequestAnimationFrame;
+          if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+          else window.addEventListener('load', loadDeferredStyles);
+        </script>
       </article>
     </section>
   </body>
