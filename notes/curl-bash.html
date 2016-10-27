@@ -17,7 +17,6 @@
       <article>
       <ul id=keywords>
       </ul>
-  
 <p>A collection of sites that ask you to pipe curl'd files into bash or similar. Bonus points are given for:</p>
 <ul>
 <li>Not using <code>https</code> because everyone likes MITM.</li>
@@ -50,6 +49,28 @@
 </ul>
       </article>
     </section>
+    <!-- 
+      At the moment (2016-10-27) only Chrome and Opera support HTML imports.
+      Once the feature is more supported I'll delete this code, but for now CSS requires some JS. :-(
+
+      http://caniuse.com/#feat=imports
+    -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+    </noscript>
+    <script>
+var loadDeferredStyles = function() {
+  var addStylesNode = document.getElementById("deferred-styles");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStylesNode.textContent;
+  document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+else window.addEventListener('load', loadDeferredStyles);
+    </script>
   </body>
 </html>
 

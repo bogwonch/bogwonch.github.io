@@ -17,13 +17,34 @@
       <article>
       <ul id=keywords>
       </ul>
-  
 <div class="figure">
 <img src="imgs/mark-04.s.jpeg" alt="Made for halloween; worn often." />
 <p class="caption">Made for halloween; worn often.</p>
 </div>
       </article>
     </section>
+    <!-- 
+      At the moment (2016-10-27) only Chrome and Opera support HTML imports.
+      Once the feature is more supported I'll delete this code, but for now CSS requires some JS. :-(
+
+      http://caniuse.com/#feat=imports
+    -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+    </noscript>
+    <script>
+var loadDeferredStyles = function() {
+  var addStylesNode = document.getElementById("deferred-styles");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStylesNode.textContent;
+  document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+else window.addEventListener('load', loadDeferredStyles);
+    </script>
   </body>
 </html>
 

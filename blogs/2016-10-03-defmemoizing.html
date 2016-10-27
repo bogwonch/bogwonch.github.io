@@ -17,7 +17,6 @@
       <article>
       <ul id=keywords>
       </ul>
-  
 <p><a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a> is a simple optimization trick. The basic trick is that for an algorithm you store previously computed results in a table. The input is the key; the result from the algorithm the output. You only compute the result if you haven't calculated it before.</p>
 <p>A simple implementation of it might look something like:</p>
 <div class="sourceCode"><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(<span class="kw">let</span> ((results (<span class="kw">make-hash-table</span>)))
@@ -95,6 +94,28 @@ NIL</code></pre></div>
 <p>I love this example. It shows the power of lisp's macros. I do not think you could do this sort of trick trivially in many other languages.</p>
       </article>
     </section>
+    <!-- 
+      At the moment (2016-10-27) only Chrome and Opera support HTML imports.
+      Once the feature is more supported I'll delete this code, but for now CSS requires some JS. :-(
+
+      http://caniuse.com/#feat=imports
+    -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+    </noscript>
+    <script>
+var loadDeferredStyles = function() {
+  var addStylesNode = document.getElementById("deferred-styles");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStylesNode.textContent;
+  document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+else window.addEventListener('load', loadDeferredStyles);
+    </script>
   </body>
 </html>
 

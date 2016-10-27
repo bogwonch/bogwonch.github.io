@@ -17,7 +17,6 @@
       <article>
       <ul id=keywords>
       </ul>
-  
 <p>I've redone the website. Gone is the Jekyll and the <em>content-management-systems</em>. Instead I have a bunch of org-mode and markdown files, and a <a href="/Makefile">Makefile</a> that builds everything for me.</p>
 <p>There is something deeply enjoyable about making your own things. I <em>could</em> go and buy a cake from the <a href="http://www.thisisanna.co.uk">beautiful patisserie shop</a> up the road from me. It is <em>often</em> (but not always) more fun to bake my own. Programmers know this desire well though that was madness and timewasting lies.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> We still program with Lisp, though. We create beautiful if unnecessary abstractions and little tweaks to build our own languages around the problems we solve.</p>
 <p>I got rid of the Jekyll code, ultimately, because I didn't really understand all it was doing, and it was tricky to tweak things. If I wanted to use a different markdown engine, I'd need to find or write a plugin, and look up how to do that. Of course now if I want to do that I still have to do that. The code is trivial however.</p>
@@ -43,6 +42,28 @@ all: ${files}
 </div>
       </article>
     </section>
+    <!-- 
+      At the moment (2016-10-27) only Chrome and Opera support HTML imports.
+      Once the feature is more supported I'll delete this code, but for now CSS requires some JS. :-(
+
+      http://caniuse.com/#feat=imports
+    -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+    </noscript>
+    <script>
+var loadDeferredStyles = function() {
+  var addStylesNode = document.getElementById("deferred-styles");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStylesNode.textContent;
+  document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+else window.addEventListener('load', loadDeferredStyles);
+    </script>
   </body>
 </html>
 

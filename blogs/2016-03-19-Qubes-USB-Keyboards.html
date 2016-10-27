@@ -17,7 +17,6 @@
       <article>
       <ul id=keywords>
       </ul>
-  
 <p>My favourite keyboard is a <em>particularly</em> gross unicorn vomit <a href="http://ortholinearkeyboards.com/planck">Planck Keyboard</a>. Unfortunately Qubes <em>sys-usb</em> VM picks it up as a mouse, not a keyboard and stops it from working (and rightly so).</p>
 <p>To get Qubes to prompt if a keyboard should be allowed to attach, like with mice, in <em>dom-0</em> edit <code>/etc/qubes-rpc/policy/qubes.InputKeyboard</code>:</p>
 <pre class="example"><code>sys-usb dom0 ask,user=root
@@ -28,6 +27,28 @@ $anyvm $anyvm deny
 <p>(Incidentally what is to stop someone modifying my laptop to do much the same attack other than ease of access?)</p>
       </article>
     </section>
+    <!-- 
+      At the moment (2016-10-27) only Chrome and Opera support HTML imports.
+      Once the feature is more supported I'll delete this code, but for now CSS requires some JS. :-(
+
+      http://caniuse.com/#feat=imports
+    -->
+    <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css"/>
+    </noscript>
+    <script>
+var loadDeferredStyles = function() {
+  var addStylesNode = document.getElementById("deferred-styles");
+  var replacement = document.createElement("div");
+  replacement.innerHTML = addStylesNode.textContent;
+  document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+else window.addEventListener('load', loadDeferredStyles);
+    </script>
   </body>
 </html>
 
