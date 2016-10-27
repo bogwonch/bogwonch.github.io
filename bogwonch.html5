@@ -20,7 +20,6 @@ $for(header-includes)$
     </style>
 $endfor$
   </head>
-  
   <body>
     <header name=top>
       <ul>
