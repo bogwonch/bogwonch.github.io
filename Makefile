@@ -7,11 +7,11 @@ css=$(patsubst %.sass,%.css,$(wildcard *.sass))
 
 imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg))
 
-pandoc_opts=--template=bogwonch --include-in-header stylesheet.css -s
+pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
 all: ${posts} ${css} ${imgs}
 
-%.html: %.org bogwonch.html5
+%.html: %.org bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
 	@pandoc -t html5 -f org ${pandoc_opts} "${<}" -o "${@}"
 
