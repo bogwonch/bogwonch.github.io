@@ -1,62 +1,123 @@
-<!DOCTYPE html><meta charset=utf-8><title>Memoization</title><meta name=viewport content="width=device-width,initial-scale=1"><style>*{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:inherit}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px;line-height:1.5}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
-  /*# sourceMappingURL=stylesheet.css.map */</style><header name=top><ul><h1>❡ <a class=title href=/ >bogwonch.net</a></h1></ul></header><section><article><p><a href=https://en.wikipedia.org/wiki/Memoization>Memoization</a> is a simple optimization trick. The basic trick is that for an algorithm you store previously computed results in a table. The input is the key; the result from the algorithm the output. You only compute the result if you haven't calculated it before.<p>A simple implementation of it might look something like:<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(<span class=kw>let</span> ((results (<span class=kw>make-hash-table</span>)))
+<!DOCTYPE html><meta charset=utf-8><title>Memoization</title><meta content="width=device-width,initial-scale=1" name=viewport><style>*{font-family:inherit;font-size:inherit;color:inherit;background-color:inherit;text-color:inherit;line-height:inherit}code{font-family:"PragmataPro",monospace}code .kw{font-style:italic}code .fu{font-weight:bold}body{margin-left:0;margin-right:0;margin-top:0;padding:0;font-family:"Source Sans Pro",sans-serif;font-size:20px;line-height:1.5}body header{margin-top:0;padding:0;background-color:#bf360c;width:100%;color:#fff;height:60px;line-height:60px}body header ul li{display:inline-block}body section{margin-left:5%;margin-right:5%}body section article{width:90%;margin:0 auto}body section article a{color:#bf360c}body section article a:visited{color:#000}body section article pre{width:90%;display:block;margin-left:auto;margin-right:auto}body section article pre code{text-align:left;color:#37474f}body section article img{width:60%;display:block;margin-left:auto;margin-right:auto}
+
+  /*# sourceMappingURL=stylesheet.css.map */</style><header name=top></header><h1>❡ <a class=title href=/ >bogwonch.net</a></h1><section><article><p><a href=https://en.wikipedia.org/wiki/Memoization>Memoization </a>is a simple optimization trick. The basic trick is that for an algorithm you store previously computed results in a table. The input is the key; the result from the algorithm the output. You only compute the result if you haven't calculated it before.<p>A simple implementation of it might look something like:<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(<span class=kw>let</span> ((results (<span class=kw>make-hash-table</span>)))
+
   (<span class=kw>defun</span><span class=fu> my-random </span>(n)
+
     (<span class=kw>multiple-value-bind</span> (result found) (<span class=kw>gethash</span> n results)
+
       (<span class=kw>if</span> found
+
         result
+
         (<span class=kw>let</span> ((result (<span class=kw>random</span> n)))
+
           (<span class=kw>setf</span> (<span class=kw>gethash</span> n results) result)
-          result)))))</code></pre></div><p>There is a fair bit of boilerplate just to do the memoization, and it obscures what the algorithm is. But this is <em>lisp</em>. The biggest argument for lisp is that we can change the language with macros. So lets define a version of function definition that automatically memoizes its program.<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(<span class=kw>defmacro</span><span class=fu> defmemoizing </span>(fn args &amp;body body)
-  (<span class=kw>let</span> ((table (<span class=kw>gensym</span> <span class=st>&quot;table&quot;</span>))
-        (result (<span class=kw>gensym</span> <span class=st>&quot;result&quot;</span>))
-        (found (<span class=kw>gensym</span> <span class=st>&quot;found&quot;</span>))
-        (fn-table (<span class=kw>intern</span> (<span class=kw>format</span> <span class=kw>nil</span> <span class=st>&quot;~:@(~a-table~)&quot;</span> `,fn))))
-    `(<span class=kw>let</span> ((,table (<span class=kw>make-hash-table</span> <span class=kw>:test</span> #&#39;equal)))
+
+          result)))))</code></pre></div><p>There is a fair bit of boilerplate just to do the memoization, and it obscures what the algorithm is. But this is <em>lisp </em>. The biggest argument for lisp is that we can change the language with macros. So lets define a version of function definition that automatically memoizes its program.<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(<span class=kw>defmacro</span><span class=fu> defmemoizing </span>(fn args &amp;body body)
+
+  (<span class=kw>let</span> ((table (<span class=kw>gensym</span> <span class=st>"table"</span>))
+
+        (result (<span class=kw>gensym</span> <span class=st>"result"</span>))
+
+        (found (<span class=kw>gensym</span> <span class=st>"found"</span>))
+
+        (fn-table (<span class=kw>intern</span> (<span class=kw>format</span> <span class=kw>nil</span> <span class=st>"~:@(~a-table~)"</span> `,fn))))
+
+    `(<span class=kw>let</span> ((,table (<span class=kw>make-hash-table</span> <span class=kw>:test</span> #'equal)))
+
        (<span class=kw>defun</span><span class=fu> </span>,fn ,args
+
          (<span class=kw>multiple-value-bind</span> (,result ,found) (<span class=kw>gethash</span> (<span class=kw>list</span> ,@args) ,table)
+
            (<span class=kw>if</span> ,found
+
                ,result
+
              (<span class=kw>progn</span>
+
                (<span class=kw>let</span> ((,result (<span class=kw>progn</span> ,@body)))
+
                  (<span class=kw>setf</span> (<span class=kw>gethash</span> (<span class=kw>list</span> ,@args) ,table) ,result)
+
                  ,result)))))
 
+
+
        (<span class=kw>defun</span><span class=fu> </span>,fn-table ()
+
          ,table))))</code></pre></div><p>Not the most efficient thing in the world, but it works. The macro defines two functions: the function we ask it to define, another that lets us into the closure and get at the table. It has a few limitations, namely that I don't handle multiple values.<p>For examples of use:<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp">(defmemoizing my-memoized-random (n) (<span class=kw>random</span> n))
 
+
+
 (defmemoizing factorial (n)
+
   (<span class=kw>cond</span>
+
    ((<span class=kw>eql</span> n <span class=dv>0</span>) <span class=dv>1</span>)
+
    ((<span class=kw>eql</span> n <span class=dv>1</span>) <span class=dv>1</span>)
+
    (<span class=kw>t</span> (<span class=kw>*</span> n (factorial (<span class=kw>1-</span> n))))))
 
+
+
 (defmemoizing fib (n)
+
   (<span class=kw>cond</span>
+
    ((<span class=kw>&lt;</span> n <span class=dv>2</span>) <span class=dv>1</span>)
+
    (<span class=kw>t</span> (<span class=kw>+</span> (fib (<span class=kw>1-</span> n)) (fib (<span class=kw>-</span> n <span class=dv>2</span>))))))
 
+
+
 (defmemoizing factorial (n)
+
   (<span class=kw>cond</span> ((<span class=kw>eql</span> n <span class=dv>0</span>) <span class=dv>1</span>)</code></pre></div><p>Looks just like normal function definitions, right?<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span class=kw>*</span> (my-memoized-random <span class=dv>10</span>)
+
 <span class=dv>6</span>
+
 <span class=kw>*</span> (my-memoized-random <span class=dv>10</span>)
+
 <span class=dv>6</span>
+
 <span class=kw>*</span> (my-memoized-random <span class=dv>10</span>)
+
 <span class=dv>6</span>
+
 <span class=kw>*</span> (my-memoized-random <span class=dv>10</span>)
+
 <span class=dv>6</span></code></pre></div><p>A-ha!<br>Side effects are gone. Since we don't bother to recompute the results, we never get another random number (for that input).<div class=sourceCode><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span class=kw>*</span> (fib <span class=dv>10</span>)
+
 <span class=dv>89</span>
+
 <span class=kw>*</span> (<span class=kw>loop</span> for k being <span class=kw>the</span> hash-key
+
         using (hash-value v) of (fib-table) 
-        <span class=kw>do</span> (<span class=kw>format</span> <span class=kw>t</span> <span class=st>&quot;~a -&gt; ~a~%&quot;</span> k v))
+
+        <span class=kw>do</span> (<span class=kw>format</span> <span class=kw>t</span> <span class=st>"~a -&gt; ~a~%"</span> k v))
+
 (<span class=dv>1</span>) -&gt; <span class=dv>1</span>
+
 (<span class=dv>0</span>) -&gt; <span class=dv>1</span>
+
 (<span class=dv>2</span>) -&gt; <span class=dv>2</span>
+
 (<span class=dv>3</span>) -&gt; <span class=dv>3</span>
+
 (<span class=dv>4</span>) -&gt; <span class=dv>5</span>
+
 (<span class=dv>5</span>) -&gt; <span class=dv>8</span>
+
 (<span class=dv>6</span>) -&gt; <span class=dv>13</span>
+
 (<span class=dv>7</span>) -&gt; <span class=dv>21</span>
+
 (<span class=dv>8</span>) -&gt; <span class=dv>34</span>
+
 (<span class=dv>9</span>) -&gt; <span class=dv>55</span>
+
 (<span class=dv>10</span>) -&gt; <span class=dv>89</span>
+
 NIL</code></pre></div><p>For the recursive function we also got all the intermediate results saved.<p>I love this example. It shows the power of lisp's macros. I do not think you could do this sort of trick trivially in many other languages.</article></section>

@@ -15,11 +15,13 @@ all: ${posts} ${css} ${imgs}
 
 %.html: %.org bogwonch.html5 ${css} 
 	@echo "[INFO] updating HTML for ${<}"
-	@pandoc -t html5 -f org ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
+	@pandoc -t html5 -f org ${pandoc_opts} "${<}" -o "${@}"
+	@html-image-inliner ${@} | ${html_minimize} | sponge "${@}"
 
 %.html: %.md bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
-	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" | ${html_minimize} -o "${@}"
+	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" -o "${@}" 
+	@html-image-inliner ${@} | ${html_minimize} | sponge "${@}"
 
 # DJPEG and CJPEG are part of the mozjpeg package
 %.s.jpeg: %.jpg
