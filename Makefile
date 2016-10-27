@@ -25,4 +25,4 @@ all: ${posts} ${css} ${imgs}
 
 %.css: %.sass
 	@echo "[INFO] updating stylesheet ${<}"
-	@sass "${<}" "${@}" 
+	@sass --style compressed "${<}" "${@}" 
