@@ -5,13 +5,13 @@ posts=$(patsubst %.org,%.html,$(wildcard *.org))   \
 
 css=$(patsubst %.sass,%.css,$(wildcard *.sass))
 
-imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg))
+imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg)) \
 
 pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
 html_minimize=html-minifier --html5 --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes,{script,style-link}-type-attributes} | awk 'NF'
 
-all: ${posts} ${css} ${imgs}
+all: ${imgs} ${css} | ${posts} 
 posts: ${posts}
 
 %.html: %.org bogwonch.html5 ${css} 
