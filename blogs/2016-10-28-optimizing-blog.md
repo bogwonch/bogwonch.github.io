@@ -8,17 +8,17 @@ It *should* go like a rocket.
 
 I already try and make everything very quick.
 Images are massively compressed and are of yucky quality, but they're also very small.
-If you really needed to see the full size ones you could explore the [/Makefile](Makefile).
-But then I stumbled across [https://developers.google.com/speed/pagespeed/](Google's PageSpeed tools).
+If you really needed to see the full size ones you could explore the [Makefile](/Makefile).
+But then I stumbled across [Google's PageSpeed tools](https://developers.google.com/speed/pagespeed/).
 Okay... so let's see what I can do.
 
 ## CSS
   
 The CSS is fairly small: a measly _1kB_.
-Initially I tried messing about with [https://www.html5rocks.com/en/tutorials/webcomponents/imports/](HTML5 Imports), but Safari on the iPhone doesn't support them.
+Initially I tried messing about with [HTML5 Imports](https://www.html5rocks.com/en/tutorials/webcomponents/imports/), but Safari on the iPhone doesn't support them.
 Also tried messing about with JavaScript, but I'm quite proud of the fact I don't use any on the main site.
 
-I can't set some neat caching header ([https://github.com](Github) hosts this).
+I can't set some neat caching header ([Github](https://github.com) hosts this).
 In the end I minimized it and embedded it, by tweaking the Pandoc template I use to generate everything.
 
 ## HTML
@@ -31,9 +31,9 @@ Minimize all the things.
 ## Images
 
 The images are already pretty small but PageSpeed was complaining about having to go and load them.
-But then I read an [http://www.techerator.com/2011/12/how-to-embed-images-directly-into-your-html/](an article about embedding images).
+But then I read an [an article about embedding images](http://www.techerator.com/2011/12/how-to-embed-images-directly-into-your-html/).
 Great okay then.
-I wrote a [https://github.com/bogwonch/html-img-inliner](little tool to inline images into HTML), and voilà.
+I wrote a [little tool to inline images into HTML](https://github.com/bogwonch/html-img-inliner), and voilà.
 I am slightly distrusting of this in general: this should really be done by caching, but it is kinda neat anyway.
 Since Github's server uses compression I'll even forgive all the inlined Base64'd data.
 
