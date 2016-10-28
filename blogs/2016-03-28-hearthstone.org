@@ -6,9 +6,6 @@ Shortly before I moved away I asked if I could run a session, where I'd kill
 off my character [[https://www.instagram.com/brianperfect/][Brian Perfect]]
 and have some last fun.
 
-#+caption: Brian in all his Lego glory.
-[[imgs/brian-perfect.s.jpeg]]
-
 These are my notes from the session I ran.
 
 * Setup
@@ -417,3 +414,6 @@ Someone needs to die.
 
 -  FIGHT /Paula/: :: TODO: But you can get the items you missed from her
    Immune to her own poetry.
+
+#+caption: Brian in all his Lego glory.
+[[imgs/brian-perfect.s.jpeg]]

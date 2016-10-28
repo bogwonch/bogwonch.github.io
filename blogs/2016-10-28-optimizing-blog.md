@@ -48,9 +48,16 @@ After all that most pages are pretty fast.
 Also tweaked some other things too to get past the usability section (bigger line-height to separate buttons, a viewport, scrolling code).
 PageSpeed complains less now.
 
-![PageSpeed results are less complaining.](imgs/pagespeed.s.jpeg)
 
 ...unless you load a page with an image when it tells me that most of the content is after the image and it has to load it then reflow everything.
 I'm happy though:
 I wrote a cute tool, and everything is a bit better.
+
+![PageSpeed results are less complaining.](imgs/pagespeed.s.jpeg)
+
+### Addendum
+
+Huh... so if the image loads off the bottom of the screen PageSpeed doesn't complain.
+That makes sense since the browser can load it without affecting any of the initially visible rendering.
+So just stick my images at the bottom...
 
