@@ -48,4 +48,16 @@ Lots of fun here!
 -   Linked script also downloads a file from `pypi.python.org`.
 -   Linked script also deletes whatever is at `~/bin/pre-commit`.
 
+`brew.sh`
+=========
 
+> Install Homebrew
+>
+> `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+>
+> Paste that at a Terminal prompt.
+>
+> The script explains what it will do and then pauses before it does it. There are more installation options here (needed on 10.5).
+
+Not the worst by far, but come on.
+Just because a script _says_ what it is doing doesn't mean you should trust it.
