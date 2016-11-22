@@ -10,6 +10,7 @@ through [[file:bogwonch.html5][pandoc]].
 * Notes
 
 - [[file:notes/curl-bash.html][Sites that pipe curl into bash]]
+- [[/notes/gopher.html][The Internet Gopher]]
 
 * Blogs
 
