@@ -9,10 +9,12 @@ imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg)) \
 
 pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
-html_minimize=html-minifier --html5 --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes,{script,style-link}-type-attributes} | awk 'NF'
+html_minimize=html-minifier --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes} | awk 'NF'
 
 all: ${imgs} ${css} | ${posts} 
 posts: ${posts}
+publish: all
+	@rsync -azP --exclude '*.jpg' --exclude '.*' * bogwonch.net:/var/www/html/
 
 %.html: %.org bogwonch.html5 ${css} 
 	@echo "[INFO] updating HTML for ${<}"
