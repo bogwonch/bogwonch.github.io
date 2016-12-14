@@ -61,3 +61,36 @@ Lots of fun here!
 
 Not the worst by far, but come on.
 Just because a script _says_ what it is doing doesn't mean you should trust it.
+
+`openssuse.org`
+===============
+
+I wanted to install a gtk-theme onto a Debian box.
+They directed me to an Open Suse repo...
+
+
+> Add repository and install manually
+> 
+> For Debian 8.0 run the following as root:
+> 
+> `echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/ /' > /etc/apt/sources.list.d/arc-theme.list `
+> `apt-get update`
+> `apt-get install arc-theme`
+> 
+> You can add the repository key to apt. Keep in mind that the owner of the key may distribute updates, packages and repositories that your system will trust (more information). To add the key, run:
+> 
+> `wget http://download.opensuse.org/repositories/home:Horst3180/Debian_8.0/Release.key`
+> `apt-key add - < Release.key`
+> `apt-get update`
+
+Lets ignore the fact the repo is running on HTTP.
+All packages should be signed by the repository key.
+This shouldn't be an issue, right?
+
+They note that the *fucking* repository key may distribute updates your system will trust.
+Yet the key is downloaded over HTTP.
+What's more you actually can't download the key over HTTPS.
+
+So you want me to install software, signed by no key.
+Or by a key I can't even trust actually came from the bloody Open Suse website?
+
