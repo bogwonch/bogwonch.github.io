@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/bogwonch
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://bogwonch.net
+  * I am bogwonch (https://keybase.io/bogwonch) on keybase.
+  * I have a public key ASDDStYJcPbufcOH5duR7t48FeNSvx0r1Li1_8Fd_tfDkwo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010125e3a4a978a1ced6d37df4a458a75b4b2d92057938eb6a1f5db32dd57a214b9d0a",
+            "host": "keybase.io",
+            "kid": "0120c34ad60970f6ee7dc387e5db91eede3c15e352bf1d2bd4b8b5ffc15dfed7c3930a",
+            "uid": "b7b2f8afa6f525557315e2d2417dbe00",
+            "username": "bogwonch"
+        },
+        "service": {
+            "hostname": "bogwonch.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1484250242,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1484250150,
+        "hash": "6b03dfaa4eb0409981bb63ff8f9b79909b1fccda49917bebb133e0409ad0910d625660a2426575d37a187e8dc6bae1e5cf4e249d81dcc5b344d0040777831c4c",
+        "seqno": 796994
+    },
+    "prev": "d95c85148d4646509c9b7fbfb898e0e2d7e22e23c22125acf2f3c5b0092b96ac",
+    "seqno": 15,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgw0rWCXD27n3Dh+Xbke7ePBXjUr8dK9S4tf/BXf7Xw5MKp3BheWxvYWTFAvV7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMjVlM2E0YTk3OGExY2VkNmQzN2RmNGE0NThhNzViNGIyZDkyMDU3OTM4ZWI2YTFmNWRiMzJkZDU3YTIxNGI5ZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYzM0YWQ2MDk3MGY2ZWU3ZGMzODdlNWRiOTFlZWRlM2MxNWUzNTJiZjFkMmJkNGI4YjVmZmMxNWRmZWQ3YzM5MzBhIiwidWlkIjoiYjdiMmY4YWZhNmY1MjU1NTczMTVlMmQyNDE3ZGJlMDAiLCJ1c2VybmFtZSI6ImJvZ3dvbmNoIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJib2d3b25jaC5uZXQiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xOCJ9LCJjdGltZSI6MTQ4NDI1MDI0MiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDg0MjUwMTUwLCJoYXNoIjoiNmIwM2RmYWE0ZWIwNDA5OTgxYmI2M2ZmOGY5Yjc5OTA5YjFmY2NkYTQ5OTE3YmViYjEzM2UwNDA5YWQwOTEwZDYyNTY2MGEyNDI2NTc1ZDM3YTE4N2U4ZGM2YmFlMWU1Y2Y0ZTI0OWQ4MWRjYzViMzQ0ZDAwNDA3Nzc4MzFjNGMiLCJzZXFubyI6Nzk2OTk0fSwicHJldiI6ImQ5NWM4NTE0OGQ0NjQ2NTA5YzliN2ZiZmI4OThlMGUyZDdlMjJlMjNjMjIxMjVhY2YyZjNjNWIwMDkyYjk2YWMiLCJzZXFubyI6MTUsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAGLYOzXaWrr+qJOjNMRT7ADzw0qHAQvvMFicyKXA6pNhlsbFTt3kc2fa8L3Ulr2gyoqOpyiwuOb6z1omSsRToCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOPbK+V2UuL68vew96iughyX84HjpZCsoUB3LryJjMn6o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bogwonch
+
+==================================================================
+
