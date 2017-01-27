@@ -1,8 +1,10 @@
 $font: "Source Sans Pro", sans-serif
 $monofont: "PragmataPro", monospace
 $text-height: 20px
-$accent: #bf360c
-$subdued: #37474f
+$accent: #0087af
+$subdued: #bcbcbc
+$foreground: #444444
+$background: #eeeeee
 
 =inset-centered($width)
   width: $width
@@ -17,7 +19,6 @@ $subdued: #37474f
   background-color: inherit
   text-color: inherit
   line-height: inherit
-
   
 body 
   margin-left: 0
@@ -27,13 +28,18 @@ body
   font-family: $font
   font-size: $text-height
   line-height: 1.5
+  color: $foreground
+  background-color: $background
+
+  ul li
+    list-style-type: '❯ '
 
   header 
     margin-top: 0
     padding: 0
     background-color: $accent
     width: 100%
-    color: white
+    color: $background
     height: 3 * $text-height
     line-height: 3
     
