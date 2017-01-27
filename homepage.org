@@ -1,0 +1,28 @@
+#+BEGIN_HTML
+<center>
+#+END_HTML
+
+* More care, less haste, be nice.
+
+#+BEGIN_HTML
+<form name="x" method="GET" action="https://duckduckgo.com/">
+      <input name="q" type="text" autofocus>
+      <input type="submit" style="display: none;">
+</form>
+#+END_HTML
+
+- [[https://news.ycombinator.com][news.ycombinator.com/]]
+- [[https://www.theguardian.com][guardian.com/]]
+- [[https://www.independent.co.uk][independent.co.uk/]]
+- [[https://fivethirtyeight.com][fivethirtyeight.com/]]
+- [[https://theverge.com][theverge.com/]]
+- [[https://lwn.net/][lwn.net/]]
+- [[https://groups.google.com/forum/#!forum/qubes-devel][../qubes-devel]]
+- [[https://groups.google.com/forum/#!forum/qubes-users][../qubes-users]]
+- [[https://www.humblebundle.com/][humblebundle.com/]]
+
+
+#+BEGIN_HTML
+</center>
+#+END_HTML
+
