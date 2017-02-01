@@ -1,0 +1,59 @@
+#+TITLE: Solving a Simple Problem with a SAT solver.
+
+I read a simple maths problem in [[https://www.theguardian.com/science/2016/dec/05/did-you-solve-it-are-you-smarter-than-a-singaporean-ten-year-old][Alex Bellos’s column in the Guardian]].
+The problem goes:
+
+#+begin_quote
+There are four numbers. If we leave out any one number, the average of the
+remaining three numbers will be 45, 60, 65 or 70. What is the average of all
+four numbers?
+#+end_quote
+
+The solution goes:
+
+- Write means of three as equation:
+  - A + B + C     = 45*3
+  - A + B +     D = 60*3
+  - A +     C + D = 65*3
+  - B + C + D = 70*3
+
+- Sum means:
+  - 3(A + B + C + D) = 3(45 + 60 + 65 + 70)
+  - A + B + C + D = 240
+
+- We want:
+  - A + B + C + D = 4 Answer
+  - Answer = 240 / 4
+  - Answer = 60
+
+Alternatively we can give the problem to the
+[[https://github.com/Z3Prover/z3][Z3]] theorem prover…
+
+#+begin_src python :session :results output
+from z3 import *
+
+a = Int('a')
+b = Int('b')
+c = Int('c')
+d = Int('d')
+
+x = Int('x')
+
+s = Solver()
+
+s.add(  (a + b + c)/3 == 45,
+        (a + b + d)/3 == 60,
+        (a + c + d)/3 == 65,
+        (b + c + d)/3 == 70,
+        (a + b + c + d)/4 == x)
+
+print(s.check())
+print(s.model())
+#+end_src
+
+#+RESULTS:
+:
+: >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> ... ... ... ... >>> >>> sat
+: [b = 45, a = 30, c = 60, d = 105, x = 60]
+
+Complete overkill… but a neat trick!
