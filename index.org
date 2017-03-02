@@ -9,6 +9,7 @@ through [[file:bogwonch.html5][pandoc]].
 
 * Notes
 
+- [[file:reading-list.html][What I'm reading]]
 - [[file:notes/curl-bash.html][Sites that pipe curl into bash]]
 - [[file:notes/gopher.html][The Internet Gopher]]
 
