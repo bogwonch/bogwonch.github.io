@@ -1,8 +1,0 @@
-#+TITLE: Mark-IX - Burger Time
-
-#+caption: A loud neon pattern but suprisingly subdued. The back is upside-down (not that you'd know it).
-[[imgs/mark-09.s.jpeg]]
-
-
-
-

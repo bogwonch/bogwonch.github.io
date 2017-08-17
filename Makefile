@@ -9,7 +9,8 @@ imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg)) \
 
 pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
-html_minimize=html-minifier --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes} | awk 'NF'
+#html_minimize=html-minifier --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes} | awk 'NF'
+html_minimize=tidy -quiet
 
 all: ${imgs} ${css} | ${posts} 
 posts: ${posts}

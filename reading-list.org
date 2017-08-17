@@ -6,14 +6,14 @@ Far too many books too read, and too little time to read them in.
   - Give responsibility for ticking to lowliest employee.
 * DONE Dune										   :kindle:
   - Save your water.
-* TODO The Plausability of Life						   :kindle:
-* TODO Trust Me I'm Lying							     :book:
-* TODO Squirrel Girl Novel							     :book:
-* TODO Tao Te Ching								   :kindle:
+* DONE The Plausability of Life						   :kindle:
+* DONE Trust Me I'm Lying							     :book:
+* DONE Squirrel Girl Novel							     :book:
+* DONE Tao Te Ching								   :kindle:
 * TODO The Claiming of Sleeping Beauty					   :kindle:
 * TODO What Makes It Page?							     :book:
-* TODO Code - The Hidden Language of Computer Hardware and Software  :kindle:
-* TODO Filthy Shakespeare							   :kindle:
+* DONE Code - The Hidden Language of Computer Hardware and Software  :kindle:
+* DONE Filthy Shakespeare							   :kindle:
 * TODO Engineering a Safer World						   :kindle:
 * TODO The Go Programming Language						   :kindle:
 * TODO The Seven Lady Godivas							     :book:
