@@ -11,6 +11,7 @@ pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
 #html_minimize=html-minifier --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes} | awk 'NF'
 html_minimize=tidy -quiet
+image_inliner=cat
 
 all: ${imgs} ${css} | ${posts} 
 posts: ${posts}
@@ -20,12 +21,12 @@ publish: all
 %.html: %.org bogwonch.html5 ${css} 
 	@echo "[INFO] updating HTML for ${<}"
 	@pandoc -t html5 -f org ${pandoc_opts} "${<}" -o "${@}"
-	@html-image-inliner ${@} | ${html_minimize} | sponge "${@}"
+	@${image_inliner} ${@} | ${html_minimize} | sponge "${@}"
 
 %.html: %.md bogwonch.html5 ${css}
 	@echo "[INFO] updating HTML for ${<}"
 	@pandoc -t html5 -f markdown ${pandoc_opts} "${<}" -o "${@}" 
-	@html-image-inliner ${@} | ${html_minimize} | sponge "${@}"
+	@${image_inliner} ${@} | ${html_minimize} | sponge "${@}"
 
 # DJPEG and CJPEG are part of the mozjpeg package
 %.s.jpeg: %.jpg
