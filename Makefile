@@ -1,3 +1,5 @@
+.PHONY: all posts publish clean
+
 posts=$(patsubst %.org,%.html,$(wildcard *.org))   \
 			$(patsubst %.org,%.html,$(wildcard */*.org)) \
 			$(patsubst %.md,%.html,$(wildcard *.md))     \
@@ -10,13 +12,16 @@ imgs=$(patsubst %.jpg,%.s.jpeg,$(wildcard */*/*.jpg)) \
 pandoc_opts=--template=bogwonch --include-in-header ${css} -s
 
 #html_minimize=html-minifier --collapse-{boolean-attributes,whitespace} --remove-{attribute-quotes,comments,empty-attributes,empty-elements,optional-tags,redundant-attributes} | awk 'NF'
-html_minimize=tidy -quiet
+html_minimize=cat
 image_inliner=cat
 
 all: ${imgs} ${css} | ${posts} 
 posts: ${posts}
 publish: all
 	@rsync -azP --exclude '*.jpg' --exclude '.*' * bogwonch.net:/var/www/html/
+
+clean:
+	@git clean -dfx
 
 %.html: %.org bogwonch.html5 ${css} 
 	@echo "[INFO] updating HTML for ${<}"
@@ -45,4 +50,4 @@ publish: all
 
 %.css: %.sass
 	@echo "[INFO] updating stylesheet ${<}"
-	@sass --style compressed "${<}" "${@}" 
+	@sassc --style compressed "${<}" "${@}" 

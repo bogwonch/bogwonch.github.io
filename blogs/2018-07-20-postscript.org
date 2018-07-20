@@ -181,6 +181,36 @@ grestore
 #+END_SRC
 
 * Output
+ 
+
+To build the charts I use a Makefile (another bit of old tech that people seem to be continuously rediscovering):
+
+#+BEGIN_SRC make
+.PHONY: all distilled pdfs clean
+
+OUTDIR := out
+DISTILDIR := distilled
+FILES := $(wildcard *.eps)
+GSFLAGS := -q -dNOPAUSE -dBATCH -P- 
+
+DISTILLED = $(addprefix $(DISTILDIR)/,$(FILES))
+TARGETS = $(addprefix $(OUTDIR)/,$(patsubst %.eps,%.pdf,$(FILES)))
+
+all: | distilled pdfs
+distilled: $(DISTILLED)
+pdfs: $(TARGETS)
+clean:
+	@rm -rf $(OUTDIR) $(DISTILDIR)
+
+$(OUTDIR)/%.pdf: $(DISTILDIR)/%.eps
+	@mkdir -p $(OUTDIR)
+	@gs -sDEVICE=pdfwrite -o "$@" $(GSFLAGS) -dAutoRotatePages=/None "$<"
+	@pdfcrop "$@" "$@"
+
+$(DISTILDIR)/%.eps: %.eps
+	@mkdir -p $(DISTILDIR)
+	@gs -sDEVICE=eps2write -sstdout=%stderr "-sOutputFile=$@" $(GSFLAGS) "$<"
+#+END_SRC
 
 A little bit of a skim over my code but what do these charts look like?
 Here's one from a paper that's coming out in August...

@@ -1,15 +1,15 @@
 #+TITLE: bogwonch.net
 #+AUTHOR: bogwonch
 
-A collection of my writings and various other things!
+A collection of my writings and various other things.
 I make [[file:shirts][shirts]] and I play with [[https://github.com/bogwonch][computers]].
+I do research for the [[http://www.bristol.ac.uk/engineering/research/cyber-security/][Bristol Cyber Security Group]].
 
 Almost all of this is written in [[file:index.org][org-mode]] and exported
 through [[file:bogwonch.html5][pandoc]].
 
 * Notes
 
-- [[file:reading-list.html][What I'm reading]]
 - [[file:notes/curl-bash.html][Sites that pipe curl into bash]]
 - [[file:notes/gopher.html][The Internet Gopher]]
 
@@ -17,6 +17,8 @@ through [[file:bogwonch.html5][pandoc]].
 
 I rarely blog. Mostly just random notes.
 
+- [[file:blogs/2018-06-23-gvpr.html][2018-06-23 GVPR: Awk for graphviz files]]
+- [[file:blogs/2018-01-19-eggs.html][2018-01-19 Eggs]]
 - [[file:blogs/2017-02-01-z3.html][2017-02-01 Solving a simple problem with a theorem prover]]
 - [[file:blogs/2016-10-28-optimizing-blog.html][2016-10-28 Optimising HTML]]
 - [[file:blogs/2016-10-03-defmemoizing.html][2016-10-03 =(defmemoizing...=]]
