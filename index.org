@@ -17,6 +17,7 @@ through [[file:bogwonch.html5][pandoc]].
 
 I rarely blog. Mostly just random notes.
 
+- [[file:blogs/2018-07-20-postscript.html][2018-07-20 PostScript]]
 - [[file:blogs/2018-06-23-gvpr.html][2018-06-23 GVPR: Awk for graphviz files]]
 - [[file:blogs/2018-01-19-eggs.html][2018-01-19 Eggs]]
 - [[file:blogs/2017-02-01-z3.html][2017-02-01 Solving a simple problem with a theorem prover]]

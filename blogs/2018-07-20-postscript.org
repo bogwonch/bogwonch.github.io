@@ -185,7 +185,7 @@ grestore
 
 To build the charts I use a Makefile (another bit of old tech that people seem to be continuously rediscovering):
 
-#+BEGIN_SRC make
+#+BEGIN_SRC makefile
 .PHONY: all distilled pdfs clean
 
 OUTDIR := out
