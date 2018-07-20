@@ -216,8 +216,7 @@ A little bit of a skim over my code but what do these charts look like?
 Here's one from a paper that's coming out in August...
 
 #+CAPTION: Example spider chart.
-#+NAME: fig:example-spider
-[[/blogs/imgs/2018-07-20-spider-example.png]]
+[[file:/blogs/imgs/2018-07-20-spider-example.png]]
 
 This is a simple example, but I don't think the code is very hard, and the output is really nice.
 Why don't more people do this?
