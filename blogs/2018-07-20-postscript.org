@@ -1,0 +1,354 @@
+#+TITLE: Postscript (1)
+
+I wanted to draw some graphs for a paper recently, and was mucking
+about in a Python graphing library trying to get them right.  They
+ended up looking pretty nice, but then I wanted to do more with them,
+add a little extra space between grouped things and tweak.  I don't
+want to do this tweaking by hand (the graphs will almost have to be
+regenerated in future), and I ended up getting frustrated.
+
+When I was a teenager I used to muck about with PostScript---never
+getting that far with it.  But the frustration with drawing these
+graphs had got to me.  How hard would it be to write my own graphing
+library in pure PostScript?  Turns out a) very easy, b) programming in
+PostScript is fun, c) you get high quality, infinitely customizable,
+figures for a fraction of the effort of /matplotlib/, /plotly/ and
+their ilk---yet handwriting figures in PostScript seems to be
+something confined to hipster PhD students (which I would admitedly
+almost qualify for)... why is it no longer popular?
+ 
+
+*WARNING*: I don't claim that any of the PostScript code here is
+great, or optimal.  Just me learning.
+
+* Spider Charts 
+
+My spider chart function takes three arguments:
+
+- the =title= of the chart
+- the =labels= for the chart (an array)
+- the =data= itself to plot
+
+#+BEGIN_SRC ps :tangle spider.ps :noweb yes
+/Helvetica-Narrow findfont
+0.05 scalefont
+setfont
+
+200 dup scale
+1 72 div setlinewidth
+1.0 1.0 translate
+0 0 moveto
+
+<<definitions>>
+
+/spider {
+  /data exch def
+  /labels exch def
+  /title exch def
+
+  <<spidercode>>
+} bind def
+
+(Example) 
+[(E) (D) (C) (B) (A)] 
+[1.0 1.5 1.0 0.5 1.0] spider
+#+END_SRC
+
+I define some additional variables
+- =n= is the number of data points to plot
+- =angle= is the angle between each leg of the spider diagram,
+
+I also normalise the data and get a maximum value from it (using some of my code in the =definintions=).
+
+#+NAME: spidercode
+#+BEGIN_SRC ps :noweb yes
+/n data length def
+/angle 360 n div def
+
+/normaldata data normalize def
+/max normaldata amaximum def
+
+gsave
+
+<<spiderplot>>
+<<spideraxes>>
+<<spiderlabels>>
+<<spideraxeslabels>>
+
+<<spider-title>>
+
+grestore
+#+END_SRC
+
+** Ploting the data
+
+Plotting the data is pretty simple.  Start a new path and load the
+normalised data.  Move to the first point and start a path, then just
+rotate for each leg and draw a line to the next bit of data.
+
+#+NAME: spiderplot
+#+BEGIN_SRC ps :noweb yes
+gsave
+newpath
+normaldata aload pop
+dup 0 exch moveto
+n {
+  /d exch def  % 0 exch?
+  0 d lineto
+  angle neg rotate
+} repeat
+closepath
+0 setgray
+fill
+grestore
+#+END_SRC
+
+
+** Drawing the axes
+
+Drawing the axes is easy... two big circles, one at the maximum and
+one at the equal weighting line (if /n=5/ the equal weighting line is
+/20%/).
+
+#+NAME: spideraxes
+#+BEGIN_SRC ps :noweb yes
+gsave
+newpath
+1 n div 0 moveto
+0 0 1 n div 0 360 arc
+n {
+  0 0 moveto
+  0 max lineto
+  angle neg rotate
+} repeat
+max 0 moveto
+0 0 max 0 360 arc
+hairline
+grestore
+#+END_SRC
+
+** Labelling everything
+
+I like to show the data on the graph where possible (avoids reading
+off of a legend) so I plot this data.  Very similar code to the data
+ploting, rotate and place, but I keep track of how far I've rotated so
+I can rotate back and get all my data straight.
+
+#+BEGIN_SRC ps :noweb yes
+gsave
+/i 0 def
+/m data sum def
+normaldata aload
+length { 
+  /d exch def
+  gsave
+  0 d moveto
+  i { angle rotate } repeat
+  d percent center-show
+  grestore
+  
+  angle neg rotate
+  /i i 1 add def
+} repeat
+grestore
+#+END_SRC
+
+Axes labels go at the maximum.
+Again same strategy... rotate and draw.
+
+#+NAME: spideraxeslabels
+#+BEGIN_SRC ps :noweb yes
+gsave
+labels aload
+length {
+  gsave
+  0 max offset add moveto
+  dup stringwidth pop 2 div neg 0 rmoveto show
+  grestore
+  angle neg rotate
+} repeat
+grestore
+#+END_SRC
+
+Finally the title goes at the top of the page.
+
+#+BEGIN_SRC ps :noweb yes
+gsave
+0 max offset 3 mul add moveto
+title dup stringwidth pop 2 div neg 0 rmoveto
+show
+grestore
+#+END_SRC
+
+* Output
+
+A little bit of a skim over my code but what do these charts look like?
+Here's one from a paper that's coming out in August...
+
+#+CAPTION: Example spider chart.
+#+NAME: fig:example-spider
+[[/blogs/imgs/2018-07-20-spider-example.png]]
+
+This is a simple example, but I don't think the code is very hard, and the output is really nice.
+Why don't more people do this?
+
+PostScript seems criminally underwritten nowadays.  In a quick survey
+of my office, only 1 (very old) person knew you could write diagrams
+like this, and the remainder didn't even know that PostScript was
+programmable.  Their conclusion was that I should just use
+/Illustrator/ or the like, which completely misses the point that I
+want it to be tweakable and generatable.
+
+A shame. I like PostScript.  The Forth-ness of it is weird but once
+you overcome the syntax it is a joy to write (and debug).
+
+The only proviso I have found so far is that you need to disable GhostScript's safety settings that (try and) stop you writing all kinds of malicious file IO when doing the initial distillation into PDF.
+This isn't an issue in this case as you know the contents of the file (and is only really a problem if you split up your PostScript files into libraries.)
+
+I have another (better!) script for drawing bar charts.  I should really write that one up as well at some point.
+
+* Extras
+
+I hid a bunch of code for clarity...
+Most of this I have split into libraries.
+
+#+NAME: definitions
+#+BEGIN_SRC ps :noweb yes
+% utilities.inc.ps: Library functions for writing Postscript
+
+% String String -> String
+/concat {
+    exch dup length
+    2 index length add string
+    dup dup 4 2 roll copy length
+    4 -1 roll putinterval
+}
+bind def
+
+% String -> Num
+/stringheight {
+    1 dict begin
+    /text exch def
+    gsave
+    {                            
+        (HXQ) true charpath pathbbox       % gets text path bounding box (LLx LLy URx URy)
+	exch pop 3 -1 roll pop            % keeps LLy and URy
+	exch sub                          % URy - LLy
+    }
+    stopped                               % did the last block fail?
+    {
+	pop pop                           % get rid of "stopped" junk
+        currentfont /FontMatrix get 3 get % gets alternative text height
+    }
+    if
+    grestore
+    end
+} bind def
+
+% String -> ()
+/show-centered {
+    3 dict begin
+    /text exch def
+
+    gsave
+    text stringwidth pop 2 div neg
+    text stringheight 2 div neg
+    rmoveto
+    
+    text show
+    
+    grestore
+} bind def
+
+% Num Num -> Num
+/maximum {
+    2 dict begin
+    /a exch def
+    /b exch def
+    a b gt { a } { b } ifelse
+    end
+} bind def
+
+% [Num] -> Num
+/amaximum {
+    aload length 1 sub {maximum} repeat
+} bind def
+
+% Num Num -> Bool
+/minimum {
+    2 dict begin
+    /a exch def
+    /b exch def
+    a b gt { b } { a } ifelse
+    end
+} bind def
+
+% [Num] -> Num
+/aminimum {
+    aload length 1 sub {minimum} repeat
+} bind def
+
+% [Int] -> Int
+/sum {
+    aload
+    length 1 sub
+    {add} repeat
+} bind def
+
+% [Num] -> [Num]
+/normalize {
+    1 dict begin
+    /xs exch def
+    /ys xs length array def
+    xs dup sum /total exch def
+    { total div } forall
+    ys astore
+    end
+} def
+
+% Clear the stack
+/clearstack { count {pop} repeat } def
+
+([INFO] Loaded utilities.inc.ps\n) print
+
+/percent {
+    /n exch def
+    n 100 mul round cvi =string cvs
+    (%)
+    concat
+} bind def
+
+/hairline {
+    gsave
+    1 300 div setlinewidth
+    1 setgray
+    stroke
+    grestore
+    1 600 div setlinewidth
+    0 setgray
+    stroke
+} bind def
+
+/centershow-outline {
+    /input exch def
+    gsave
+    input stringwidth pop -2 div
+    0 rmoveto
+    input true charpath
+    1 200 div setlinewidth
+    1 setgray
+    stroke
+    grestore
+} bind def
+
+/center-show {
+    /input exch def 
+    gsave
+    input centershow-outline
+    input stringwidth pop -2 div
+    0 rmoveto
+    0 setgray
+    input show
+    grestore
+} bind def
+#+END_SRC

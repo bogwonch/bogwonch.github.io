@@ -1,0 +1,54 @@
+#+TITLE: GVPR: Awk for Graphviz
+
+I /love/ Graphviz and I use it to create all sorts of neat diagrams
+for papers.  That said, the graphs can become somewhat convoluted
+after you've been mucking about with them for a while.
+
+Case in point, recently I've been building some really convoluted
+graphs for a work project.  The graphs are split into 19 different
+files, and each contains a number of different nodes each with a
+different colour scheme.  Some nodes are full colour, others have a bit
+of transparency to make them paler, others have more transparency and
+the third lot are not filled in at all.
+
+The files look something like this:
+
+#+begin_src graphviz
+digraph g {
+  node [style=filled fillcolor="#ff0000"]
+  a1 [label="Apples"]
+  a2 [label="Oranges"]
+
+  node [fillcolor="#ff0000aa"]
+  a3 [label="Cucumber"]
+  a4 [label="Marrow"]
+
+  node [fillcolor="#ff000033"]
+  a5 [label="Carrot"]
+
+  node [style=solid color="#ff0000"]
+  a6 [label="Fish"]
+
+  {a1 a3} -> {a3 a4} -> a5 -> a6
+}
+#+end_src
+
+I wanted a programmatic way of extracting the filled nodes, and the
+two semi-transparent nodes.  I want the mechanism to handle badly
+formatted files (because I slip up) and I really just want to extract
+the labels as a comma-separated list.  Oh and I needed it done
+quickly---paper deadlines and wot-not.
+
+Enter =gvpr=: the graph pattern scanning and processing language.  Awk
+for graphviz files, essentially.  I'd dimly noted that it existed
+before but never had a use for it.
+
+#+begin_src bash
+gvpr 'N[length(fillcolor) == 7] {print(label, ", ")}' <$dotfile
+gvpr 'N[length(fillcolor) == 9 && substr(fillcolor, 7, 2) == "aa"] {print(label, ", ")}' <$dotfile
+gvpr 'N[length(fillcolor) == 9 && substr(fillcolor, 7, 2) == "33"] {print(label, ", ")}' <$dotfile
+#+end_src
+
+Job done!
+It's a neat little utility and it saved me a little bit of time.
+I shall have to use it again in the future.
